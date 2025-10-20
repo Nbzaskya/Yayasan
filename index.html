@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Yayasan Cahaya Harapan — Portofolio</title>
+    <meta
+      name="description"
+      content="Portofolio Yayasan Cahaya Harapan — Latar belakang, prestasi, tim, program, galeri, dan cara berdonasi."
+    />
+    <style>
+      /* -------------------------
+       Variables & Reset
+       ------------------------- */
+      :root {
+        -bg: #fde9d9;; /* soft background */
+        --accent-1: #f07a4b; /* pink-magenta */
+        --accent-2: #f07a4b; /* indigo */
+        --muted: #6b7280;
+        --card: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.6)
+        );
+        --glass: rgba(255, 255, 255, 0.65);
+        --radius: 16px;
+        --shadow: 0 8px 30px rgba(17, 24, 39, 0.08);
+        --max-width: 1100px;
+        --transition: 350ms;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: linear-gradient(
+          120deg,
+          #fff5ec 0%,
+          #fff5ec 35%,
+          #fff5ec 65%,
+           #fff5ec 100%
+        );
+        background-attachment: fixed;
+        color: #f07a4b;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 28px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      /* -------------------------
+       Layout
+       ------------------------- */
+      .wrap {
+        max-width: var(--max-width);
+        margin: 28px auto;
+        padding: 24px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 6px 22px rgba(111, 124, 255, 0.14);
+      }
+      .brand h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+      nav {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .btn {
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: var(--glass);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(15, 23, 42, 0.04);
+        cursor: pointer;
+        transition-duration: var(--transition);
+      }
+      .btn:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+      }
+      .primary {
+        background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+        color: #fff;
+        border: none;
+      }
+
+      /* -------------------------
+       Hero
+       ------------------------- */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 28px;
+        align-items: center;
+        margin-top: 22px;
+      }
+      .hero-card {
+        padding: 28px;
+        border-radius: 20px;
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(111, 124, 255, 0.09);
+        color: var(--accent-2);
+        font-weight: 600;
+        font-size: 12px;
+      }
+      .hero h2 {
+        margin: 14px 0 10px;
+        font-size: 28px;
+      }
+      .hero p.lead {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .stat-row {
+        display: flex;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .stat {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.85)
+        );
+        padding: 12px;
+        border-radius: 12px;
+        flex: 1;
+        text-align: center;
+      }
+      .stat strong {
+        display: block;
+        font-size: 18px;
+      }
+
+      /* -------------------------
+       Grid sections
+       ------------------------- */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 28px;
+        margin-top: 28px;
+      }
+      .card {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+      }
+      .small {
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      /* -------------------------
+       Achievements carousel
+       ------------------------- */
+      .carousel {
+        position: relative;
+        overflow: hidden;
+        border-radius: 14px;
+      }
+      .slides {
+        display: flex;
+        gap: 12px;
+        transition: transform var(--transition);
+        padding: 12px;
+      }
+      .slide {
+        min-width: 260px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.85)
+        );
+        padding: 14px;
+        border-radius: 12px;
+      }
+      .carousel-controls {
+        display: flex;
+        gap: 8px;
+        position: absolute;
+        right: 12px;
+        top: 12px;
+      }
+
+      /* -------------------------
+       Portfolio grid
+       ------------------------- */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform var(--transition);
+      }
+      .portfolio-item:hover {
+        transform: translateY(-8px);
+      }
+      .portfolio-caption {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.25)
+        );
+        padding: 8px 12px;
+        border-radius: 10px;
+        color: #fff;
+      }
+
+      /* -------------------------
+       Team / Biografi
+       ------------------------- */
+      .team {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+      .person {
+        padding: 14px;
+        border-radius: 12px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+      }
+
+      /* -------------------------
+       Events / timeline
+       ------------------------- */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .event {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent-2);
+        margin-top: 8px;
+      }
+
+      /* -------------------------
+       Footer
+       ------------------------- */
+      footer {
+        margin-top: 36px;
+        padding: 18px;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.6)
+        );
+      }
+
+      /* -------------------------
+       Modal
+       ------------------------- */
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(7, 10, 29, 0.5);
+        z-index: 60;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .modal-card {
+        width: min(900px, 95%);
+        max-height: 86vh;
+        overflow: auto;
+        border-radius: 14px;
+        padding: 20px;
+        background: #fff;
+      }
+
+      /* -------------------------
+       Utility & Animations
+       ------------------------- */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity var(--transition), transform var(--transition);
+      }
+      .in-view {
+        opacity: 1;
+        transform: none;
+      }
+      .grid-gap {
+        height: 18px;
+      }
+      @media (max-width: 980px) {
+        .hero,
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .wrap {
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <div class="logo" aria-hidden>YC</div>
+          <div>
+            <h1>YAYASAN PENDIDIKAN PEDULI LINGKUNGAN DAN SOSIAL INDONESIA🍃</h1>
+            <div class="small">
+              telah disahkan melalui akta pendirian dengan legalitas Kemenkumham RI No. AHU 0002310.AH.01.04 Tahun 2017
+            </div>
+          </div>
+        </div>
+
+        <nav>
+          <button class="btn" data-scroll="about">Tentang</button>
+          <button class="btn" data-scroll="prestasi">Prestasi</button>
+          <button class="btn" data-scroll="portfolio">Program</button>
+          <button class="btn" data-scroll="team">Tim</button>
+          <button class="btn primary" data-scroll="contact">
+            Donasi & Kontak
+          </button>
+        </nav>
+      </header>
+
+      <!-- HERO -->
+      <section
+        class="hero-card hero"
+        role="region"
+        aria-labelledby="hero-title"
+      >
+        <div>
+          <span class="eyebrow">Sejak 2014 • Terdaftar</span>
+          <h2 id="hero-title">
+            Tumbuh dan Berkembang dengan Kearifan Lokal
+          </h2>
+          <p class="lead">
+            Yayasan Cahaya Harapan bekerja bersama relawan, mitra lokal, dan
+            donor untuk menciptakan program berkelanjutan yang berdampak
+            langsung pada anak-anak dan keluarga kurang mampu.
+          </p>
+
+          <div style="margin-top: 18px; display: flex; gap: 12px">
+            <button class="btn primary" id="donate-cta">Donasi Sekarang</button>
+            <button class="btn" data-scroll="portfolio">Lihat Program</button>
+          </div>
+        </div>
+
+        <aside style="padding: 0 6px">
+          <div
+            style="
+              border-radius: 14px;
+              overflow: hidden;
+              box-shadow: var(--shadow);
+            "
+          >
+            <picture>
+              <source srcset="" />
+              <img
+                src="IMG-20231226-WA0131.jpg"
+                alt="Anak-anak berkegiatan"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  min-height: 280px;
+                "
+              />
+            </picture>
+          </div>
+        </aside>
+      </section>
+
+      <div class="grid-gap"></div>
+
+      <!-- ABOUT + ACHIEVEMENTS -->
+      <div class="grid-2">
+        <section class="card fade-in" id="about">
+          <h3>Tentang Yayasan</h3>
+          <p class="small">
+            Berdiri pada 2012, Yayasan Cahaya Harapan berfokus pada pendidikan
+            informal, beasiswa mikro, dan pelatihan keterampilan. Semua program
+            dirancang untuk berkelanjutan, melibatkan komunitas, dan diukur
+            hasilnya.
+          </p>
+
+          <h4 style="margin-top: 12px">Visi</h4>
+          <p class="small">
+            Masyarakat sejahtera yang memiliki akses pendidikan dan keterampilan
+            untuk mandiri.
+          </p>
+
+          <h4 style="margin-top: 12px">Misi</h4>
+          <ul class="small">
+            <li>Menyediakan beasiswa & bimbingan belajar</li>
+            <li>Mengembangkan pusat keterampilan lokal</li>
+            <li>Melakukan advokasi kesehatan dasar</li>
+          </ul>
+
+          <div style="margin-top: 12px; display: flex; gap: 8px">
+            <button class="btn" id="download-profile">
+              Unduh Profil (PDF)
+            </button>
+            <button class="btn" id="impact-report">Lihat Laporan Dampak</button>
+          </div>
+        </section>
+
+        <aside class="card fade-in" id="prestasi">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <h3>Prestasi</h3>
+            <div class="small">Dipilih & diverifikasi tim</div>
+          </div>
+
+          <div class="carousel" style="margin-top: 12px">
+            <div class="slides" id="slides">
+              <div class="slide" tabindex="0">
+                <strong>Juara 1 Lomba Sains Remaja — 2024</strong>
+                <p class="small">
+                  Siswa binaan meraih juara 1 tingkat provinsi.
+                </p>
+              </div>
+              <div class="slide" tabindex="0">
+                <strong>Juara 2 Olimpiade Komputer — 2023</strong>
+                <p class="small">
+                  Tim kami membawa medali perak tingkat nasional.
+                </p>
+              </div>
+              <div class="slide" tabindex="0">
+                <strong>Tim Debat SMA — 2022</strong>
+                <p class="small">Finalis kompetisi antar kabupaten.</p>
+              </div>
+            </div>
+            <div class="carousel-controls">
+              <button class="btn" id="prev">‹</button>
+              <button class="btn" id="next">›</button>
+            </div>
+          </div>
+
+          <div
+            style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap"
+          >
+            <a class="btn" href="Sertifikat.html">Sertifikat</a>
+            <a class="btn" href="Galeri.html">Galeri Kegiatan</a>
+            <a class="btn" href="Publikasi.html">Publikasi</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="grid-gap"></div>
+
+      <!-- PORTFOLIO / PROGRAM -->
+      <section class="card fade-in" id="portfolio">
+        <h3>Program & Portofolio</h3>
+        <p class="small">
+          Program utama yang berjalan saat ini — klik untuk detail & hasil.
+        </p>
+
+        <div
+          style="
+            margin-top: 12px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+          "
+        >
+          <input
+            id="search"
+            placeholder="Cari program atau tahun..."
+            style="
+              flex: 1;
+              padding: 10px;
+              border-radius: 12px;
+              border: 1px solid rgba(15, 23, 42, 0.06);
+            "
+          />
+          <select
+            id="filter"
+            style="
+              padding: 10px;
+              border-radius: 12px;
+              border: 1px solid rgba(15, 23, 42, 0.06);
+            "
+          >
+            <option value="all">Semua</option>
+            <option value="pendidikan">Pendidikan</option>
+            <option value="kesehatan">Lingkungan</option>
+            <option value="pelatihan">Sosial</option>
+          </select>
+        </div>
+
+        <div
+          style="margin-top: 12px"
+          class="portfolio-grid"
+          id="portfolio-grid"
+        >
+          <!-- contoh item: ganti src & teks sesuai konten nyata -->
+          <div
+            class="portfolio-item"
+            data-type="pendidikan"
+            data-title="Beasiswa Mikro 2024"
+            tabindex="0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=800&auto=format&fit=crop&s=placeholder"
+              alt="Beasiswa"
+            />
+            <div class="portfolio-caption">Beasiswa Mikro — 2024</div>
+          </div>
+
+          <div
+            class="portfolio-item"
+            data-type="pelatihan"
+            data-title="Workshop Koding Remaja"
+            tabindex="0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1532619187604-9b7b8f9a0b03?q=80&w=800&auto=format&fit=crop&s=placeholder"
+              alt="Workshop"
+            />
+            <div class="portfolio-caption">Workshop Koding</div>
+          </div>
+
+          <div
+            class="portfolio-item"
+            data-type="kesehatan"
+            data-title="Klinik Kesehatan Keliling"
+            tabindex="0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=800&auto=format&fit=crop&s=placeholder"
+              alt="Klinik"
+            />
+            <div class="portfolio-caption">Klinik Keliling</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid-gap"></div>
+
+      <!-- TIM / BIOGRAFI -->
+      <section class="card fade-in" id="team">
+        <h3>Tim & Biografi</h3>
+        <p class="small">Kenali penggerak di balik program.</p>
+
+        <div class="team" style="margin-top: 12px">
+          <div class="person">
+            <div class="avatar">AR</div>
+            <div>
+              <strong>Andika Rahman</strong>
+              <div class="small">
+                Direktur Program — Lulusan Pendidikan, 10+ tahun pengalaman NGO
+              </div>
+            </div>
+          </div>
+
+          <div class="person">
+            <div class="avatar">SI</div>
+            <div>
+              <strong>Siti Indah</strong>
+              <div class="small">
+                Koordinator Relawan — Spesialis manajemen komunitas
+              </div>
+            </div>
+          </div>
+
+          <div class="person">
+            <div class="avatar">RN</div>
+            <div>
+              <strong>Rian Nugroho</strong>
+              <div class="small">Hubungan Donor & Kemitraan</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid-gap"></div>
+
+      <!-- EVENTS / TIMELINE -->
+      <section class="card fade-in">
+        <h3>Jadwal & Kegiatan Mendatang</h3>
+        <div class="timeline" style="margin-top: 12px">
+          <div class="event">
+            <div class="dot" aria-hidden></div>
+            <div>
+              <strong>Pelatihan Keterampilan — 10 Nov 2025</strong>
+              <div class="small">Lokasi: Balai Desa</div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="dot" aria-hidden></div>
+            <div>
+              <strong>Program Beasiswa — Pendaftaran 1 Des 2025</strong>
+              <div class="small">Detail pendaftaran & syarat</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid-gap"></div>
+
+      <!-- CONTACT / DONATE -->
+      <section class="card fade-in" id="contact">
+        <h3>Donasi & Kontak</h3>
+        <p class="small">
+          Dukungan Anda membantu kami menjangkau lebih banyak anak. Pilih metode
+          donasi atau hubungi tim kami untuk kerjasama.
+        </p>
+
+        <div
+          style="
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            align-items: center;
+          "
+        >
+          <div style="flex: 1; min-width: 260px">
+            <label class="small">Nama</label>
+            <input
+              id="name"
+              placeholder="Nama lengkap"
+              style="
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                border: 1px solid rgba(15, 23, 42, 0.06);
+              "
+            />
+            <label class="small" style="margin-top: 8px; display: block"
+              >Email</label
+            >
+            <input
+              id="email"
+              placeholder="email@contoh.com"
+              style="
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                border: 1px solid rgba(15, 23, 42, 0.06);
+              "
+            />
+            <label class="small" style="margin-top: 8px; display: block"
+              >Pesan</label
+            >
+            <textarea
+              id="message"
+              placeholder="Pesan atau catatan donasi"
+              style="
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                border: 1px solid rgba(15, 23, 42, 0.06);
+                min-height: 100px;
+              "
+            ></textarea>
+            <div style="margin-top: 8px; display: flex; gap: 8px">
+              <button class="btn primary" id="submit-contact">
+                Kirim & Donasi
+              </button>
+              <button class="btn" id="clear-form">Bersihkan</button>
+            </div>
+          </div>
+
+          <aside style="width: 320px; min-width: 240px">
+            <div
+              style="
+                padding: 12px;
+                border-radius: 12px;
+                background: linear-gradient(
+                  135deg,
+                  rgba(255, 255, 255, 0.9),
+                  rgba(255, 255, 255, 0.85)
+                );
+                box-shadow: var(--shadow);
+              "
+            >
+              <strong>Metode Donasi</strong>
+              <p class="small" style="margin-top: 8px">
+                Bank: BNI • a/n Yayasan Cahaya Harapan<br />Rek: 000-111-222<br />Gunakan
+                kolom pesan untuk konfirmasi pembayaran.
+              </p>
+              <div style="margin-top: 12px; display: flex; gap: 8px">
+                <button class="btn">Transfer</button>
+                <button class="btn">QRIS</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+          "
+        >
+          <div>
+            <strong>Yayasan Cahaya Harapan</strong>
+            <div class="small">Desa Slempit RT 016 RW 003 • Kecamatan Kedamean, Kabupaten Gresik, Provinsi Jawa Timur, Kode Pos 61175 2025</div>
+          </div>
+          <div class="small">© 2012 - 2025 • Semua hak cipta dilindungi</div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Modal untuk detail program/portfolio -->
+    <div class="modal" id="modal">
+      <div
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <button class="btn" id="close-modal" style="float: right">Tutup</button>
+        <h3 id="modal-title">Judul</h3>
+        <p class="small" id="modal-desc">Deskripsi program lengkap...</p>
+      </div>
+    </div>
+
+    <script>
+      // Smooth scrolling nav
+      document.querySelectorAll("[data-scroll]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-scroll");
+          document.getElementById(id).scrollIntoView();
+        });
+      });
+
+      // Simple carousel
+      const slides = document.getElementById("slides");
+      const prev = document.getElementById("prev");
+      const next = document.getElementById("next");
+      let idx = 0;
+      function updateCarousel() {
+        const w = 280; // approximate card width + gap
+        slides.style.transform = `translateX(${-(w * idx)}px)`;
+      }
+      prev.addEventListener("click", () => {
+        idx = Math.max(0, idx - 1);
+        updateCarousel();
+      });
+      next.addEventListener("click", () => {
+        idx = Math.min(slides.children.length - 1, idx + 1);
+        updateCarousel();
+      });
+
+      // Portfolio filter & modal
+      const grid = document.getElementById("portfolio-grid");
+      grid.addEventListener("click", (e) => {
+        const card = e.target.closest(".portfolio-item");
+        if (!card) return;
+        const title = card.getAttribute("data-title");
+        openModal(
+          title,
+          "Detail program: " +
+            title +
+            ". Tambahkan keterangan lebih lengkap di sini."
+        );
+      });
+      document.getElementById("search").addEventListener("input", (e) => {
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll(".portfolio-item").forEach((it) => {
+          const title = it.getAttribute("data-title").toLowerCase();
+          it.style.display = title.includes(q) ? "" : "none";
+        });
+      });
+      document.getElementById("filter").addEventListener("change", (e) => {
+        const v = e.target.value;
+        document.querySelectorAll(".portfolio-item").forEach((it) => {
+          it.style.display =
+            v === "all" || it.getAttribute("data-type") === v ? "" : "none";
+        });
+      });
+
+      // Modal helpers
+      const modal = document.getElementById("modal");
+      function openModal(title, desc) {
+        document.getElementById("modal-title").textContent = title;
+        document.getElementById("modal-desc").textContent = desc;
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      document.getElementById("close-modal").addEventListener("click", () => {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      });
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      });
+
+      // Small contact form handler (placeholder)
+      document
+        .getElementById("submit-contact")
+        .addEventListener("click", () => {
+          const name = document.getElementById("name").value.trim();
+          if (!name) {
+            alert("Isi nama terlebih dahulu.");
+            return;
+          }
+          alert(
+            "Terima kasih, " +
+              name +
+              "! Pesan Anda telah tercatat. Tim akan menghubungi via email."
+          );
+          // TODO: hubungkan ke backend/Google Forms/Email API
+        });
+      document.getElementById("clear-form").addEventListener("click", () => {
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+      });
+
+      // Reveal on scroll
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("in-view");
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".fade-in").forEach((el) => io.observe(el));
+
+      // Accessibility: keyboard open modal
+      document.querySelectorAll(".portfolio-item").forEach((it) => {
+        it.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            it.click();
+          }
+        });
+      });
+
+      // Auto-play carousel small interval
+      setInterval(() => {
+        idx = (idx + 1) % slides.children.length;
+        updateCarousel();
+      }, 4500);
+
+      // Optional: download profile (placeholder)
+      document
+        .getElementById("download-profile")
+        .addEventListener("click", () => {
+          alert(
+            "Fitur ekspor PDF belum dikoneksikan. Saya bisa bantu generate PDF profil jika Anda mau."
+          );
+        });
+
+      // Donate CTA
+      document.getElementById("donate-cta").addEventListener("click", () => {
+        document
+          .getElementById("contact")
+          .scrollIntoView({ behavior: "smooth" });
+        document.getElementById("name").focus();
+      });
+    </script>
+  </body>
+</html>

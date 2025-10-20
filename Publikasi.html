@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Publikasi — Yayasan Cahaya Harapan</title>
+    <meta
+      name="description"
+      content="Kumpulan publikasi media dan berita terkait kegiatan."
+    />
+    <style>
+      :root {
+        --bg: #b2a0ff;
+        --accent-1: #ff66b3;
+        --accent-2: #6f7cff;
+        --card: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.86),
+          rgba(255, 255, 255, 0.64)
+        );
+        --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+        font-family: Inter, system-ui, Arial;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: linear-gradient(
+          120deg,
+          #cbb2ff 0%,
+          #b2a0ff 35%,
+          #a5a8ff 65%,
+          #ffb6e0 100%
+        );
+        background-attachment: fixed;
+        color: #0f172a;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 28px;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        background: var(--card);
+        padding: 14px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        transition: transform 300ms ease;
+      }
+      .thumb {
+        height: 140px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .meta {
+        font-size: 13px;
+        color: #667;
+      }
+      .btn {
+        padding: 8px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        text-decoration: none;
+      }
+      .primary {
+        background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+        color: #fff;
+        border: none;
+      }
+      .fade-slide {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 360ms ease, transform 360ms ease;
+      }
+      .in {
+        opacity: 1;
+        transform: none;
+      }
+      footer {
+        margin-top: 18px;
+        color: #556;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div>
+          <h2>Publikasi & Berita</h2>
+          <div class="small">
+            Ringkasan berita terkait kegiatan yayasan — klik untuk membaca lebih
+            lanjut.
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <a class="btn" href="index.html">Kembali</a>
+          <a class="btn" href="Sertifikat.html">Sertifikat</a>
+          <a class="btn" href="Galeri.html">Galeri Kegiatan</a>
+        </div>
+      </header>
+
+      <div class="grid" id="news-grid">
+        <!-- contoh publikasi -->
+        <article class="card fade-slide">
+          <div class="thumb">
+            <img
+              src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?q=80&w=1200&auto=format&fit=crop&s=placeholder"
+              alt=""
+            />
+          </div>
+          <h3>Peserta Yayasan Raih Juara Lomba Sains Provinsi</h3>
+          <div class="meta">Kompas Edu • 14 Mei 2024</div>
+          <p class="small">
+            Siswa binaan Yayasan Cahaya Harapan mendapatkan Juara 1 pada Lomba
+            Sains tingkat provinsi, menyorot efektivitas program bimbingan kami.
+          </p>
+          <div style="margin-top: 12px; display: flex; gap: 8px">
+            <button class="btn" data-read="1">Baca Selengkapnya</button>
+            <a
+              class="btn primary"
+              href="https://example.com"
+              target="_blank"
+              rel="noopener"
+              >Sumber</a
+            >
+          </div>
+        </article>
+
+        <article class="card fade-slide">
+          <div class="thumb">
+            <img
+              src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200&auto=format&fit=crop&s=placeholder"
+              alt=""
+            />
+          </div>
+          <h3>Pelatihan Keterampilan: 50 Peserta Lulus</h3>
+          <div class="meta">Tribun News • 10 Apr 2025</div>
+          <p class="small">
+            Program pelatihan keterampilan kami menyelesaikan batch kedua, fokus
+            pada keterampilan digital dan wirausaha mikro.
+          </p>
+          <div style="margin-top: 12px; display: flex; gap: 8px">
+            <button class="btn" data-read="2">Baca Selengkapnya</button>
+            <a
+              class="btn primary"
+              href="https://example.com"
+              target="_blank"
+              rel="noopener"
+              >Sumber</a
+            >
+          </div>
+        </article>
+
+        <article class="card fade-slide">
+          <div class="thumb">
+            <img
+              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop&s=placeholder"
+              alt=""
+            />
+          </div>
+          <h3>Klinik Keliling Tingkatkan Akses Kesehatan Anak</h3>
+          <div class="meta">Detik Health • 21 Feb 2025</div>
+          <p class="small">
+            Kolaborasi dengan layanan kesehatan lokal membawa pemeriksaan gratis
+            dan edukasi kesehatan ke desa terpencil.
+          </p>
+          <div style="margin-top: 12px; display: flex; gap: 8px">
+            <button class="btn" data-read="3">Baca Selengkapnya</button>
+            <a
+              class="btn primary"
+              href="https://example.com"
+              target="_blank"
+              rel="noopener"
+              >Sumber</a
+            >
+          </div>
+        </article>
+      </div>
+
+      <footer>© 2012 - 2025 • Yayasan Cahaya Harapan</footer>
+    </div>
+
+    <!-- modal baca -->
+    <div
+      class="lightbox"
+      id="readbox"
+      style="
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(2, 6, 23, 0.6);
+        z-index: 80;
+        padding: 18px;
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          padding: 18px;
+          border-radius: 12px;
+          max-width: 900px;
+          max-height: 86vh;
+          overflow: auto;
+        "
+      >
+        <button class="btn" id="close-read" style="float: right">Tutup</button>
+        <div id="read-content"></div>
+      </div>
+    </div>
+
+    <script>
+      // reveal
+      const cards = document.querySelectorAll(".fade-slide");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("in");
+          });
+        },
+        { threshold: 0.12 }
+      );
+      cards.forEach((c) => io.observe(c));
+
+      // sample "baca selengkapnya" content
+      const contentMap = {
+        1: `<h3>Peserta Yayasan Raih Juara Lomba Sains Provinsi</h3><p><em>Kompas Edu • 14 Mei 2024</em></p><p>Tim siswa binaan menerima bimbingan intensif selama 6 bulan. Dalam final, mereka menunjukkan kemampuan riset dan presentasi yang unggul...</p>`,
+        2: `<h3>Pelatihan Keterampilan: 50 Peserta Lulus</h3><p><em>Tribun News • 10 Apr 2025</em></p><p>Pelatihan difokuskan pada keterampilan digital, desain grafis, dan pemasaran mikro. 85% peserta melaporkan peningkatan pendapatan dalam 3 bulan.</p>`,
+        3: `<h3>Klinik Keliling Tingkatkan Akses Kesehatan Anak</h3><p><em>Detik Health • 21 Feb 2025</em></p><p>Klinik memberikan vaksinasi, pemeriksaan gizi, dan edukasi kesehatan ibu-anak bersama tenaga medis dari puskesmas setempat.</p>`,
+      };
+
+      document.querySelectorAll("[data-read]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-read");
+          document.getElementById("read-content").innerHTML =
+            contentMap[id] || "<p>Tidak ada konten.</p>";
+          document.getElementById("readbox").style.display = "flex";
+          document.body.style.overflow = "hidden";
+        });
+      });
+      document.getElementById("close-read").addEventListener("click", () => {
+        document.getElementById("readbox").style.display = "none";
+        document.body.style.overflow = "";
+      });
+      document.getElementById("readbox").addEventListener("click", (e) => {
+        if (e.target === document.getElementById("readbox")) {
+          document.getElementById("readbox").style.display = "none";
+          document.body.style.overflow = "";
+        }
+      });
+
+      // back smooth
+      document
+        .querySelectorAll('a[href="index.html"], a[href="certificate.html"]')
+        .forEach((a) => {
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.style.opacity = 0;
+            setTimeout(() => (window.location.href = a.href), 220);
+          });
+        });
+    </script>
+  </body>
+</html>

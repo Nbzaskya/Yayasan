@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sertifikat — Yayasan Cahaya Harapan</title>
+    <meta
+      name="description"
+      content="Sertifikat & penghargaan Yayasan Cahaya Harapan."
+    />
+    <style>
+      :root {
+        --bg: #b2a0ff;
+        --accent-1: #ff66b3;
+        --accent-2: #6f7cff;
+        --card: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.86),
+          rgba(255, 255, 255, 0.64)
+        );
+        --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+        --radius: 12px;
+        --transition: 360ms cubic-bezier(0.2, 0.9, 0.3, 1);
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: linear-gradient(
+          120deg,
+          #cbb2ff 0%,
+          #b2a0ff 35%,
+          #a5a8ff 65%,
+          #ffb6e0 100%
+        );
+        background-attachment: fixed;
+        color: #0f172a;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 28px;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 8px 30px rgba(111, 124, 255, 0.12);
+      }
+      h1 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .small {
+        font-size: 13px;
+        color: #556;
+      }
+      .nav {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .btn {
+        padding: 8px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        cursor: pointer;
+        transition: transform var(--transition), box-shadow var(--transition);
+        text-decoration: none;
+      }
+      .btn:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow);
+      }
+      .primary {
+        background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+        color: #fff;
+        border: none;
+      }
+      /* grid style for certificate (uniform card heights) */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin-top: 12px;
+      }
+      .card-item {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 12px;
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        transition: transform var(--transition);
+      }
+      .card-item:hover {
+        transform: translateY(-8px);
+      }
+      .card-item img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .meta {
+        font-size: 13px;
+        color: #556;
+      }
+      /* reveal on scroll */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity var(--transition), transform var(--transition);
+      }
+      .in {
+        opacity: 1;
+        transform: none;
+      }
+      footer {
+        margin-top: 18px;
+        color: #556;
+      }
+      /* lightbox modal with blur */
+      .overlay {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 120;
+      }
+      .overlay.open {
+        display: flex;
+      }
+      .overlay::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(2, 6, 23, 0.45);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+      .panel {
+        position: relative;
+        z-index: 130;
+        background: #fff;
+        border-radius: 12px;
+        padding: 18px;
+        max-width: 1000px;
+        max-height: 88vh;
+        overflow: auto;
+        box-shadow: 0 30px 80px rgba(2, 6, 23, 0.35);
+      }
+      .close-x {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        background: transparent;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      @media (max-width: 760px) {
+        body {
+          padding: 16px;
+        }
+        .card-item img {
+          height: 160px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <div class="logo">YC</div>
+          <div>
+            <h1>Sertifikat & Penghargaan</h1>
+            <div class="small">
+              Dokumentasi sertifikat yang diraih peserta & tim
+            </div>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="navigasi">
+          <a class="btn" href="index.html">Kembali</a>
+          <a class="btn primary" href="Sertifikat.html">Sertifikat</a>
+          <a class="btn" href="Galeri.html">Galeri Kegiatan</a>
+          <a class="btn" href="Publikasi.html">Publikasi</a>
+        </nav>
+      </header>
+
+      <main>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+          "
+        >
+          <div>
+            <h2 style="margin: 0">Arsip Sertifikat</h2>
+            <div class="small">Klik kartu untuk melihat versi besar.</div>
+          </div>
+          <div style="display: flex; gap: 8px">
+            <input
+              id="q"
+              placeholder="Cari: judul, tahun..."
+              style="
+                padding: 8px;
+                border-radius: 10px;
+                border: 1px solid rgba(15, 23, 42, 0.06);
+              "
+            />
+            <select
+              id="year"
+              style="
+                padding: 8px;
+                border-radius: 10px;
+                border: 1px solid rgba(15, 23, 42, 0.06);
+              "
+            >
+              <option value="all">Semua Tahun</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card-grid" id="cert-grid">
+          <!-- contoh sertifikat (seragam tinggi gambar) -->
+          <div
+            class="card-item fade-up"
+            data-title="Juara Sains 2024"
+            data-year="2024"
+            tabindex="0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?q=80&w=1200&auto=format&fit=crop&s=placeholder"
+              alt="Sertifikat Juara Sains 2024"
+            />
+            <strong>Juara 1 Lomba Sains — 2024</strong>
+            <div class="meta">Dinas Pendidikan • 12 Mei 2024</div>
+          </div>
+
+          <div
+            class="card-item fade-up"
+            data-title="Olimpiade Komputer 2023"
+            data-year="2023"
+            tabindex="0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581093588401-9c5dfd9f76d7?q=80&w=1200&auto=format&fit=crop&s=placeholder"
+              alt="Sertifikat Olimpiade 2023"
+            />
+            <strong>Olimpiade Komputer — 2023</strong>
+            <div class="meta">Komunitas IT • 8 Nov 2023</div>
+          </div>
+
+          <div
+            class="card-item fade-up"
+            data-title="Piagam Partisipasi 2022"
+            data-year="2022"
+            tabindex="0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1526318472351-c75fcf0704b9?q=80&w=1200&auto=format&fit=crop&s=placeholder"
+              alt="Piagam 2022"
+            />
+            <strong>Piagam Partisipasi — 2022</strong>
+            <div class="meta">Seminar Kewirausahaan • 21 Sep 2022</div>
+          </div>
+
+          <div
+            class="card-item fade-up"
+            data-title="Penghargaan Mitra 2025"
+            data-year="2025"
+            tabindex="0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&s=placeholder"
+              alt="Penghargaan 2025"
+            />
+            <strong>Penghargaan Mitra Terbaik — 2025</strong>
+            <div class="meta">Pemerintah Daerah • 2 Feb 2025</div>
+          </div>
+
+          <div
+            class="card-item fade-up"
+            data-title="Sertifikat Pelatihan 2024"
+            data-year="2024"
+            tabindex="0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop&s=placeholder"
+              alt="Sertifikat Pelatihan"
+            />
+            <strong>Sertifikat Pelatihan Keterampilan — 2024</strong>
+            <div class="meta">Lembaga Pelatihan • 18 Okt 2024</div>
+          </div>
+        </div>
+      </main>
+
+      <footer style="margin-top: 18px; color: #556">
+        © 2012 - 2025 • Yayasan Cahaya Harapan
+      </footer>
+    </div>
+
+    <!-- lightbox overlay -->
+    <div class="overlay" id="overlay" aria-hidden="true">
+      <div class="panel" role="dialog" aria-modal="true">
+        <button class="close-x" id="closeOverlay">✕</button>
+        <div id="overlayContent"></div>
+      </div>
+    </div>
+
+    <script>
+      // Page nav smooth fade
+      document.querySelectorAll("a[href]").forEach((a) => {
+        const href = a.getAttribute("href");
+        if (
+          href &&
+          !href.startsWith("http") &&
+          !href.startsWith("#") &&
+          href !== ""
+        ) {
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.style.opacity = 0;
+            setTimeout(() => (location.href = href), 220);
+          });
+        }
+      });
+
+      // Reveal on scroll
+      const ups = document.querySelectorAll(".fade-up");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((ent) => {
+            if (ent.isIntersecting) ent.target.classList.add("in");
+          });
+        },
+        { threshold: 0.12 }
+      );
+      ups.forEach((u) => io.observe(u));
+
+      // Search & year filter
+      const certGrid = document.getElementById("cert-grid");
+      document.getElementById("q").addEventListener("input", (e) => {
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll("#cert-grid .card-item").forEach((card) => {
+          const t = card.getAttribute("data-title").toLowerCase();
+          card.style.display = t.includes(q) ? "" : "none";
+        });
+      });
+      document.getElementById("year").addEventListener("change", (e) => {
+        const y = e.target.value;
+        document.querySelectorAll("#cert-grid .card-item").forEach((card) => {
+          card.style.display =
+            y === "all" || card.getAttribute("data-year") === y ? "" : "none";
+        });
+      });
+
+      // Lightbox open
+      const overlay = document.getElementById("overlay");
+      certGrid.addEventListener("click", (e) => {
+        const card = e.target.closest(".card-item");
+        if (!card) return;
+        const img = card.querySelector("img").src;
+        const title = card.getAttribute("data-title");
+        const meta = card.querySelector(".meta").innerHTML;
+        document.getElementById(
+          "overlayContent"
+        ).innerHTML = `<h3 style="margin-top:0">${title}</h3><img src="${img}" alt="${title}" style="max-width:100%;border-radius:8px"/><p class="meta">${meta}</p>`;
+        overlay.classList.add("open");
+        overlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+
+      document
+        .getElementById("closeOverlay")
+        .addEventListener("click", closeOverlay);
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeOverlay();
+      });
+      function closeOverlay() {
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+      // keyboard escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeOverlay();
+      });
+    </script>
+  </body>
+</html>
